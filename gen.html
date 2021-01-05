@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gen</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+</head>
+<body>
+
+<div class="container" id="app" style="max-width: 500px">
+    <br>
+    <h2>Checkins gallery generator</h2>
+    <label>Venue ID</label>
+    <input type="text" v-model="venue_id">
+
+    <label>Untappd token <a href="https://podtapkom.ru/info" target="_blank">Get token</a></label>
+    <input type="text" v-model="token">
+
+    <label>Columns</label>
+    <input type="text" v-model="columns">
+
+    <label>Rows</label>
+    <input type="text" v-model="rows">
+
+    <b><a target="_blank"
+          :href="'https://topivo.ru/?v='+venue_id+'&t='+token+'&x='+columns+'&y='+rows">https://topivo.ru/?v={{venue_id}}&t={{token}}&x={{columns}}&y={{rows}}</a></b>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            token: '',
+            venue_id: '',
+            columns: 6,
+            rows: 4
+        }
+    })
+</script>
+</body>
+</html>
